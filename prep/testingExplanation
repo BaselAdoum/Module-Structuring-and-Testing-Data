@@ -1,0 +1,238 @@
+## 🚀 Exercise 2: Complete Project Setup from Scratch
+
+Let me walk you through this step-by-step with **all files in the same folder** (no separate folders for tests).
+
+---
+
+## **Step 1: Create Empty Folder**
+
+```bash
+# Open terminal and navigate to where you want the project
+cd ~/HYF  # or wherever you prefer
+
+# Create and enter new folder
+mkdir exercise-2-project
+cd exercise-2-project
+
+# Verify it's empty
+ls -la
+```
+**What happens:** Creates a completely empty directory for your new project.
+
+---
+
+## **Step 2: Initialize NodeJS Project**
+
+```bash
+npm init -y
+```
+
+**What happens:**
+- Creates a `package.json` file with default values
+- The `-y` flag means "yes to all defaults"
+- **package.json** is the configuration file for your Node.js project
+
+**Check the created package.json:**
+```json
+{
+  "name": "exercise-2-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
+```
+
+---
+
+## **Step 3: Install Jest as a Dependency**
+
+```bash
+npm i jest --save-dev
+```
+
+**What happens:**
+- Downloads Jest testing framework from npm registry
+- Creates `node_modules/` folder (contains all Jest code)
+- Creates `package-lock.json` (locks dependency versions)
+- Updates `package.json` with Jest in `devDependencies`
+
+**Updated package.json now includes:**
+```json
+"devDependencies": {
+  "jest": "^29.5.0"
+}
+```
+
+---
+
+## **Step 4: Change Test Script in package.json**
+
+**Edit package.json** and change this line:
+```json
+"test": "echo \"Error: no test specified\" && exit 1"
+```
+**To:**
+```json
+"test": "jest"
+```
+
+**Why?** This tells npm that when you run `npm test`, it should execute Jest to run your tests.
+
+**Complete package.json should look like:**
+```json
+{
+  "name": "exercise-2-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.5.0"
+  }
+}
+```
+
+---
+
+## **Step 5: Create Test File in Same Folder**
+
+```bash
+touch example1.test.js
+```
+
+**File location:** `exercise-2-project/example1.test.js` (right in the main folder)
+
+---
+
+## **Step 6: Write Tests in example1.test.js**
+
+```javascript
+// example1.test.js
+
+// Test 1: Basic arithmetic
+test('addition works correctly', () => {
+  expect(2 + 2).toBe(4);
+});
+
+// Test 2: String operations
+test('string concatenation works', () => {
+  expect('hello' + ' ' + 'world').toBe('hello world');
+});
+
+// Test 3: Array operations
+test('array length is correct', () => {
+  const fruits = ['apple', 'banana', 'orange'];
+  expect(fruits.length).toBe(3);
+});
+
+// Test 4: Object properties
+test('object has correct property', () => {
+  const person = { name: 'John', age: 30 };
+  expect(person.name).toBe('John');
+});
+
+// Test 5: Custom function
+function multiply(a, b) {
+  return a * b;
+}
+
+test('multiply function works correctly', () => {
+  expect(multiply(3, 4)).toBe(12);
+  expect(multiply(5, 0)).toBe(0);
+});
+```
+
+---
+
+## **Step 7: Run Your Tests**
+
+```bash
+npm test
+```
+
+**Expected Output:**
+```
+ PASS  ./example1.test.js
+  ✓ addition works correctly (X ms)
+  ✓ string concatenation works (X ms) 
+  ✓ array length is correct (X ms)
+  ✓ object has correct property (X ms)
+  ✓ multiply function works correctly (X ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       5 passed, 5 total
+```
+
+---
+
+## **Step 8: Verify Project Structure**
+
+**Your folder should now look like this:**
+```
+exercise-2-project/
+├── node_modules/          # All Jest and dependency code
+├── package.json           # Project configuration
+├── package-lock.json      # Dependency tree lock
+└── example1.test.js       # Your test file (in same folder!)
+```
+
+**Verify with:**
+```bash
+ls -la
+```
+
+---
+
+## 🎯 What You've Accomplished
+
+1. **✅ Created fresh project folder**
+2. **✅ Initialized Node.js project** with `package.json`
+3. **✅ Installed Jest** testing framework
+4. **✅ Configured test script** to run Jest
+5. **✅ Created test file** in the same folder (no separate folders)
+6. **✅ Wrote multiple test cases** covering different scenarios
+7. **✅ Ran tests successfully** with all tests passing
+
+---
+
+## 🔍 Key Concepts Explained
+
+**Why `--save-dev`?** 
+- Jest is a **development dependency** - you need it to write tests, but your final application doesn't need it to run
+
+**Why change the test script?**
+- Tells npm: "When I type `npm test`, run the Jest command instead of showing an error"
+
+**Why `.test.js` extension?**
+- Jest automatically finds and runs files ending with `.test.js`
+
+**All files in same folder:**
+- Simple structure for learning
+- No complex folder organization needed yet
+- Easy to find and manage files
+
+---
+
+## ✅ Final Check
+
+Run this to see your complete setup:
+```bash
+# Check all files are there
+ls -la
+
+# Run tests one more time
+npm test
+```
+
+You now have a complete JavaScript testing environment set up! 🎉
