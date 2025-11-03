@@ -62,7 +62,6 @@
 // // Then the function should return "Reflex angle"
 // // ====> write your test here, and then add a line to pass the test in the function above
 
-
 function getAngleType(angle) {
   // case 1: right angel
   if (angle === 90) {
@@ -83,7 +82,7 @@ function getAngleType(angle) {
   // Case 5: Reflex angle (between 180 and 360)
   else if (angle > 180 && angle < 360) {
     return "Reflex angle";
-  } 
+  }
   //0 and minus case
   else if (angle === 0) {
     return "Not an angle";
@@ -96,6 +95,7 @@ function getAngleType(angle) {
 // console.log(getAngleType(180));
 // console.log(getAngleType(345));
 // console.log(getAngleType(0));
+module.exports = getAngleType;
 
 function assertEquals(actualOutput, targetOutput) {
   console.assert(
@@ -114,11 +114,10 @@ const obtuse = getAngleType(120);
 assertEquals(obtuse, "Obtuse angle");
 
 const straight = getAngleType(180);
-assertEquals(straight, "Straight angle"); 
+assertEquals(straight, "Straight angle");
 
 const reflex = getAngleType(359);
-assertEquals(reflex, "Reflex angle"); 
+assertEquals(reflex, "Reflex angle");
 
 const notAngle = getAngleType(0);
-assertEquals(notAngle, "Not an angle"); 
-
+assertEquals(notAngle, "Not an angle");
