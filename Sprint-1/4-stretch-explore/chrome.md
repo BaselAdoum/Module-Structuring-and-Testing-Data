@@ -16,3 +16,8 @@ Now try invoking the function `prompt` with a string input of `"What is your nam
 
 What effect does calling the `prompt` function have?
 What is the return value of `prompt`?
+
+**ANSWER** 
+i inspected google search page https://www.google.com/
+when i invoked alert, alert dialog pops up in the browser window. the text is hello world and the page is blocked until i click OK. in the console the returned value is undefined. 
+while for calling prompt, let myName = prompt("What is your name?"); A modal prompt dialog appears. it shows the message “What is your name?” and OK and Cancel buttons. 
